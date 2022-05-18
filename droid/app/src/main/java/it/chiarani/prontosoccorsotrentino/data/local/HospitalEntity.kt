@@ -9,38 +9,38 @@ data class HospitalEntity(
     @PrimaryKey val id: Int? = null,
 
     @SerializedName("codice")
-    val code: String,
+    val code: String?,
 
     @SerializedName("descrizione")
-    val description: String,
+    val description: String?,
 
     @SerializedName("ospedale")
-    val hospitalName: String,
+    val hospitalName: String?,
 
     @SerializedName("unita_operativa")
-    val hospitalDepartment: String,
+    val hospitalDepartment: String?,
 
     @SerializedName("descrizione_ambulatorio")
-    val hospitalDepartmentDescription: String,
+    val hospitalDepartmentDescription: String?,
 
     @SerializedName("direttore")
-    val directorName: String,
+    val directorName: String?,
 
     @SerializedName("localita")
-    val location: String,
+    val location: String?,
 
     @SerializedName("messaggio")
-    val customMessage: String,
+    val customMessage: String?,
 
     @SerializedName("attesa")
-    val waitingListEntity: HospitalWaitingListWaitingRoomEntity,
+    val waitingListEntity: HospitalWaitingListWaitingRoomEntity?,
 
     @SerializedName("ambulatorio")
-    val waitingListSurgeryRoomEntity: HospitalWaitingListSurgeryRoomEntity,
+    val waitingListSurgeryRoomEntity: HospitalWaitingListSurgeryRoomEntity?,
 
     @SerializedName("osservazione")
-    val waitingListObservationRoomEntity: HospitalWaitingListObservationRoomEntity,
+    val waitingListObservationRoomEntity: HospitalWaitingListObservationRoomEntity?,
 
     @SerializedName("attesa-media")
-    val waitingAverageWaitingListEntity: HospitalAverageWaitingListEntity
+    val waitingAverageWaitingListEntity: HospitalAverageWaitingListEntity?
 )

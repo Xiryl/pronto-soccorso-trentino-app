@@ -26,7 +26,7 @@ fun HospitalItem(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = hospital.hospitalName,
+                    text = "${hospital.hospitalName}",
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onBackground,
@@ -36,14 +36,14 @@ fun HospitalItem(
                 )
                 Spacer(modifier = modifier.width(4.dp))
                 Text(
-                    text = hospital.code,
+                    text = "${hospital.code}",
                     fontWeight = FontWeight.Light,
                     color = MaterialTheme.colors.onBackground
                 )
             }
             Spacer(modifier = modifier.height(10.dp))
             Text(
-                text = hospital.description,
+                text = "${hospital.description}",
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colors.onBackground
             )

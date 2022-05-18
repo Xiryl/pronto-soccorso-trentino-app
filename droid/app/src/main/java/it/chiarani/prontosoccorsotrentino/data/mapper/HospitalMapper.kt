@@ -17,10 +17,10 @@ fun HospitalEntity.toHospital(): Hospital {
         directorName = directorName,
         location = location,
         customMessage = customMessage,
-        waitingListEntity = waitingListEntity.toHospitalWaitingListWaitingRoom(),
-        waitingListSurgeryRoomEntity = waitingListSurgeryRoomEntity.toHospitalWaitingListSurgeryRoom(),
-        waitingListObservationRoomEntity = waitingListObservationRoomEntity.toHospitalWaitingListObservationRoom(),
-        waitingAverageWaitingListEntity = waitingAverageWaitingListEntity.toHospitalAverageWaitingList(),
+        waitingListEntity = waitingListEntity?.toHospitalWaitingListWaitingRoom(),
+        waitingListSurgeryRoomEntity = waitingListSurgeryRoomEntity?.toHospitalWaitingListSurgeryRoom(),
+        waitingListObservationRoomEntity = waitingListObservationRoomEntity?.toHospitalWaitingListObservationRoom(),
+        waitingAverageWaitingListEntity = waitingAverageWaitingListEntity?.toHospitalAverageWaitingList(),
     )
 }
 
@@ -38,9 +38,9 @@ fun Hospital.toHospitalEntity(): HospitalEntity {
         directorName = directorName,
         location = location,
         customMessage = customMessage,
-        waitingListEntity = waitingListEntity.toHospitalWaitingListWaitingRoomEntity(),
-        waitingListSurgeryRoomEntity = waitingListSurgeryRoomEntity.toHospitalWaitingListSurgeryRoomEntity(),
-        waitingListObservationRoomEntity = waitingListObservationRoomEntity.toHospitalWaitingListObservationRoomEntity(),
-        waitingAverageWaitingListEntity = waitingAverageWaitingListEntity.toHospitalAverageWaitingListEntity(),
+        waitingListEntity = waitingListEntity?.toHospitalWaitingListWaitingRoomEntity(),
+        waitingListSurgeryRoomEntity = waitingListSurgeryRoomEntity?.toHospitalWaitingListSurgeryRoomEntity(),
+        waitingListObservationRoomEntity = waitingListObservationRoomEntity?.toHospitalWaitingListObservationRoomEntity(),
+        waitingAverageWaitingListEntity = waitingAverageWaitingListEntity?.toHospitalAverageWaitingListEntity(),
     )
 }

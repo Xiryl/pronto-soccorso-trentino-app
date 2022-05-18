@@ -21,6 +21,10 @@ class HospitalListingsViewModel @Inject constructor(
 
     private var searchJob: Job? = null
 
+    init {
+        getHospitalData(fetchFromRemote = true)
+    }
+
     fun onEvent(event: HospitalListingsEvent) {
         when (event) {
             is HospitalListingsEvent.Refresh -> {

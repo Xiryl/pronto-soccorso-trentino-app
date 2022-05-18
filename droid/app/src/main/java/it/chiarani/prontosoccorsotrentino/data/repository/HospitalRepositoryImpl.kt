@@ -2,8 +2,10 @@ package it.chiarani.prontosoccorsotrentino.data.repository
 
 import it.chiarani.prontosoccorsotrentino.data.local.HospitalDatabase
 import it.chiarani.prontosoccorsotrentino.data.mapper.toHospital
+import it.chiarani.prontosoccorsotrentino.data.mapper.toHospitalList
 import it.chiarani.prontosoccorsotrentino.data.remote.HospitalApi
 import it.chiarani.prontosoccorsotrentino.domain.model.Hospital
+import it.chiarani.prontosoccorsotrentino.domain.model.HospitalList
 import it.chiarani.prontosoccorsotrentino.domain.repository.HospitalRepository
 import it.chiarani.prontosoccorsotrentino.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +17,7 @@ import javax.inject.Singleton
 
 @Singleton
 class HospitalRepositoryImpl @Inject constructor(
-    val api: HospitalApi,
+    private val api: HospitalApi,
     private val db: HospitalDatabase
 ) : HospitalRepository {
 
@@ -61,14 +63,20 @@ class HospitalRepositoryImpl @Inject constructor(
 
             remoteHospitals?.let { hospital ->
                 dao.clearHospitalListings()
-                dao.insertHospitalListings(hospital)
+                for (h in hospital) {
+                    dao.insertHospitalListings(h.hospitalResponseEntity?.departmentEntity?.hospital!!)
+                }
 
+
+                val dd = dao
+                    .searchHospitalEntity("")
+                    .map {
+                        it.toHospital()
+                    }
                 // data always come from cache
                 emit(
                     Resource.Success(
-                        data = dao
-                            .searchHospitalEntity("")
-                            .map { it.toHospital() })
+                        data = dd)
                 )
                 emit(Resource.Loading(false))
             }

@@ -13,7 +13,7 @@ interface HospitalDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHospitalListings(
-        hospitalEntities: List<HospitalEntity>
+        hospitalEntity: HospitalEntity
     )
 
     @Query("DELETE FROM hospitalentity")
