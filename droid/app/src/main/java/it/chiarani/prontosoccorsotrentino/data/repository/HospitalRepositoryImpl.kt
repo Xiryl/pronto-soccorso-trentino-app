@@ -61,7 +61,7 @@ class HospitalRepositoryImpl @Inject constructor(
 
             remoteHospitals?.let { hospital ->
                 dao.clearHospitalListings()
-                dao.insertHospitalListings(listOf(hospital))
+                dao.insertHospitalListings(hospital)
 
                 // data always come from cache
                 emit(

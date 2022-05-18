@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface HospitalApi {
     @GET("/STATOPS001.json")
-    suspend fun getHospitalStatusListings() : HospitalEntity
+    suspend fun getHospitalStatusListings() : List<HospitalEntity>
 
     companion object {
         const val BASE_URL = "https://servizi.apss.tn.it/opendata"
