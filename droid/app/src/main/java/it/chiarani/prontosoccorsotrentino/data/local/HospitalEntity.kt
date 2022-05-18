@@ -33,7 +33,7 @@ data class HospitalEntity(
     val customMessage: String,
 
     @SerializedName("attesa")
-    val waitingListEntity: HospitalAverageWaitingListEntity,
+    val waitingListEntity: HospitalWaitingListWaitingRoomEntity,
 
     @SerializedName("ambulatorio")
     val waitingListSurgeryRoomEntity: HospitalWaitingListSurgeryRoomEntity,
@@ -43,5 +43,4 @@ data class HospitalEntity(
 
     @SerializedName("attesa-media")
     val waitingAverageWaitingListEntity: HospitalAverageWaitingListEntity
-
 )
