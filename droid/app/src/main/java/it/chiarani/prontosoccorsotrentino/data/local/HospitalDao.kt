@@ -23,7 +23,7 @@ interface HospitalDao {
         """
         SELECT *
         FROM hospitalentity
-        WHERE LOWER(hospitalName) LIKE '%' || LOWER(:query) || '%' OR UPPER(:query) == hospitalName
+        WHERE LOWER(description) LIKE '%' || LOWER(:query) || '%' OR UPPER(:query) == description
     """
     )
     suspend fun searchHospitalEntity(query: String): List<HospitalEntity>

@@ -56,7 +56,7 @@ fun HospitalListingsScreen(
                             .fillMaxWidth()
                             .clickable { // todo
                             }
-                            .padding(16.dp)
+                            .padding(8.dp)
                     )
                     if (i < state.hospitals.size) {
                         Divider(
