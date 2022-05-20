@@ -1,10 +1,7 @@
 package it.chiarani.prontosoccorsotrentino.presentation.hospital_listings
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.OutlinedTextField
@@ -38,7 +35,7 @@ fun HospitalListingsScreen(
                 .padding(16.dp)
                 .fillMaxWidth(),
             placeholder = {
-                Text(text = "Search ...")
+                Text(text = "Cerca Ospedale ...")
             },
             maxLines = 1,
             singleLine = true
@@ -56,7 +53,7 @@ fun HospitalListingsScreen(
                             .fillMaxWidth()
                             .clickable { // todo
                             }
-                            .padding(8.dp)
+                            .padding(10.dp)
                     )
                     if (i < state.hospitals.size) {
                         Divider(
