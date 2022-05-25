@@ -1,9 +1,6 @@
 package it.chiarani.prontosoccorsotrentino.presentation.hospital_listings
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
@@ -13,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -26,17 +24,25 @@ import it.chiarani.prontosoccorsotrentino.ui.theme.Orange
 
 @Composable
 fun HospitalItem(
+    index: Int,
+    selected: Int,
     hospital: Hospital,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickEvent: (Int) -> Unit,
 ) {
     Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
+        modifier = modifier
+            .clickable {
+                onClickEvent.invoke(index)
+            }
+            .background(Color.White),
+        verticalAlignment = Alignment.CenterVertically,
+
+        ) {
         Column(modifier = modifier.weight(1f)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = hospital.description!!,
@@ -54,7 +60,7 @@ fun HospitalItem(
                     fontWeight = FontWeight.Normal,
                     color = MaterialTheme.colors.onBackground
                 )
-                if(!hospital.customMessage.isNullOrEmpty()) {
+                if (!hospital.customMessage.isNullOrEmpty()) {
                     Image(
                         painter = painterResource(id = R.drawable.ic_info),
                         contentDescription = "Extra message"
@@ -88,7 +94,10 @@ fun HospitalItem(
                         Canvas(
                             modifier = Modifier
                                 .size(16.dp)
-                                .border(BorderStroke(2.dp, Color.LightGray), shape = CircleShape),
+                                .border(
+                                    BorderStroke(2.dp, Color.LightGray),
+                                    shape = CircleShape
+                                ),
                             onDraw = {
                                 drawCircle(color = Color.White)
                             })
@@ -220,6 +229,8 @@ fun HospitalItem(
 
 
             }
+
+            //-----
         }
     }
 }
